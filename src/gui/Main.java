@@ -1,6 +1,7 @@
 
 package gui;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -25,19 +26,21 @@ public class Main extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader(location, resource);
         Parent root = fxmlLoader.load();
         GuiController c = fxmlLoader.getController();
+//        Media media = new Media("file:///F:/TertisClone/src/resources/BanksTetrominoes.wav");
+//        MediaPlayer player = new MediaPlayer(media);
+        // Sound BackGround Player
+//        player.setCycleCount(MediaPlayer.INDEFINITE);
+//        player.play();
         
-        Media media = new Media("file:///F:/TertisClone/src/resources/BanksTetrominoes/BanksTetrominoes.mp3");
-        MediaPlayer player = new MediaPlayer(media);
-        player.play();
         
         
         
         
         primaryStage.setTitle("TirtisFX");
-        Scene scene = new Scene(root, 620, 830);
+        Scene scene = new Scene(root, 420, 540);
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
-        primaryStage.setResizable(false);
+//        primaryStage.setResizable(false);
         
         primaryStage.show();
         

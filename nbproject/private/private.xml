@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/TertisClone/src/logic/bricks/RandomBrickGenerator.java</file>
+            <file>file:/F:/TertisClone/src/gui/GuiController.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/JBrick.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/SBrick.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/TBrick.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/Brick.java</file>
+            <file>file:/F:/TertisClone/src/gui/Main.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/OBrick.java</file>
+            <file>file:/F:/TertisClone/src/resources/gameLayout.fxml</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/IBrick.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/LBrick.java</file>
+            <file>file:/F:/TertisClone/src/logic/bricks/ZBrick.java</file>
+        </group>
     </open-files>
 </project-private>
