@@ -227,29 +227,46 @@ public class GuiController implements Initializable {
         gamePanel.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if ((event.getCode() == KeyCode.SPACE || event.getCode() == KeyCode.P) && isGameOver.getValue() == Boolean.FALSE) {
-                    if(pauseButton.selectedProperty().getValue() == Boolean.TRUE){
-                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
-                    }
-                    else{
-                        pauseButton.selectedProperty().setValue(Boolean.TRUE);
-                    }
-//                    pauseButton.selectedProperty().setValue(!pauseButton.selectedProperty().getValue());
+                KeyCode e = event.getCode();
+                Boolean PauseStatus = pauseButton.selectedProperty().getValue();
+                Boolean OverStatus = isGameOver.getValue();
+//                System.out.printf("%", rectangles)
+                if(PauseStatus== Boolean.TRUE){
+                    System.out.println("Game is Pause");
                 }
-                else if (paused.getValue() == Boolean.FALSE && isGameOver.getValue() == Boolean.FALSE) {
-                    if (event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) {
+                else{
+                    System.out.println("Game is not Pause");
+                }
+                if(isGameOver.getValue() == Boolean.TRUE){
+                    System.out.println("Game is Over");
+                }
+                else{
+                    System.out.println("Game is not Over");
+                }
+                System.out.println("------------------------");
+                if (e == KeyCode.SPACE) {
+//                    if(PauseStatus == Boolean.TRUE){
+//                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
+//                    }
+//                    else{
+//                        pauseButton.selectedProperty().setValue(Boolean.TRUE);
+//                    }
+                    pauseButton.selectedProperty().setValue(!PauseStatus);
+                }
+                if (PauseStatus == Boolean.FALSE && OverStatus == Boolean.FALSE) {
+                    if (e == KeyCode.UP || e == KeyCode.W) {
                         refreshBrick(eventListener.onRotateEvent());
                         event.consume();
                     }
-                    if (event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A) {
+                    if (e == KeyCode.LEFT || e == KeyCode.A) {
                         refreshBrick(eventListener.onLeftEvent());
                         event.consume();
                     }
-                    if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D) {
+                    if (e == KeyCode.RIGHT || e == KeyCode.D) {
                         refreshBrick(eventListener.onRightEvent());
                         event.consume();
                     }
-                    if (event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.S) {
+                    if (e == KeyCode.DOWN || e == KeyCode.S) {
 //                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
                         moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
                         event.consume();
@@ -270,7 +287,7 @@ public class GuiController implements Initializable {
                 } else {
                     timeLine.play();
                     pauseButton.setText("Pause");
-                    pauseButton.selectedProperty().setValue(Boolean.FALSE);
+//                    pauseButton.selectedProperty().setValue(Boolean.FALSE);
                 }
             }
         });
@@ -283,6 +300,7 @@ public class GuiController implements Initializable {
     }
     public void gameOver(){
         timeLine.stop();
+        pauseButton.setText("New Game");
         gameOverPanel.setVisible(true);
         isGameOver.setValue(Boolean.TRUE);
 //        System.out.println("Game Over");
