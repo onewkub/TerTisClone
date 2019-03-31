@@ -20,7 +20,6 @@ public class GameController implements InputEventListener{
         viewController.initGameView(board.getBoardMatrix(), board.getViewData());
         viewController.bindScore(board.getScore().scoreProperty());
     }
-
     @Override
     public DownData onDownEvent(MoveEvent event) {
         boolean canMove = board.moveBrickDown();
@@ -63,6 +62,12 @@ public class GameController implements InputEventListener{
     public ViewData onRotateEvent() {
         board.rotateBrickLeft();
         return board.getViewData();
+    }
+
+    @Override
+    public void createNewGame() {
+        board.newGame();
+        viewController.refreshGameBackground(board.getBoardMatrix());
     }
     
 

@@ -23,7 +23,14 @@ public class SimpleBoard {
         brickGenerator = new RandomBrickGenerator();
         score = new Score();
     }
-    
+//    public void clearBoard(){
+//        for(int i = 0; i < height; i++){
+//            for(int j = 0; j < width; j++){
+//                currentGameMatrix[i][j] = 0;
+//            }
+//        }
+//        score = new Score();
+//    }
     public void setBrick(Brick brick){
         this.brick = brick;
         currentOffset = new Point(3, 0);
@@ -49,10 +56,11 @@ public class SimpleBoard {
     }
     
     public boolean moveBrickDown(){
+        int [][] currentMatrix = MatrixOperations.copy(currentGameMatrix);
         Point p = new Point(currentOffset);
         p.translate(0, 1);
         currentOffset = p;
-        boolean conflict = MatrixOperations.intersects(currentGameMatrix, getCurrentShape(), 
+        boolean conflict = MatrixOperations.intersects(currentMatrix, getCurrentShape(), 
                 (int) p.getX() , (int) p.getY());
         
         if(conflict){
@@ -65,9 +73,11 @@ public class SimpleBoard {
         }
     }
     public boolean moveBrickLeft() {
+        int [][] currentMatrix = MatrixOperations.copy(currentGameMatrix);
         Point p = new Point(currentOffset);
+//        System.out.printf("x:%d y:%d\n", (int) p.getX(), (int) p.getY()); 
         p.translate(-1, 0);
-                boolean conflict = MatrixOperations.intersects(currentGameMatrix, getCurrentShape(), 
+        boolean conflict = MatrixOperations.intersects(currentMatrix, getCurrentShape(), 
                 (int) p.getX() , (int) p.getY());
         if(conflict){
 //            System.out.println("Out Of Bounds");
@@ -80,9 +90,10 @@ public class SimpleBoard {
         
     }
     public boolean moveBrickRight() {
+        int [][] currentMatrix = MatrixOperations.copy(currentGameMatrix);
         Point p = new Point(currentOffset);
         p.translate(1, 0);
-                boolean conflict = MatrixOperations.intersects(currentGameMatrix, getCurrentShape(), 
+        boolean conflict = MatrixOperations.intersects(currentMatrix, getCurrentShape(), 
                 (int) p.getX() , (int) p.getY());
         if(conflict){
 //            System.out.println("Out Of Bounds");
@@ -113,10 +124,11 @@ public class SimpleBoard {
     }
 
     public boolean rotateBrickLeft() {
+        int [][] currentMatrix = MatrixOperations.copy(currentGameMatrix);
         NextShapeInfo nextShape = getNextShape();
 //        System.out.printf("currShape = %d\n", currentShape);
         boolean conflic = MatrixOperations.intersects(
-                currentGameMatrix, nextShape.getShape(), 
+                currentMatrix, nextShape.getShape(), 
                 (int) currentOffset.getX(),
                 (int) currentOffset.getY());
         if(conflic){
@@ -144,6 +156,12 @@ public class SimpleBoard {
         ClearRow clearRow = MatrixOperations.checkRemoving(currentGameMatrix);
         currentGameMatrix = clearRow.getNewMatrix();
         return clearRow;
+    }
+
+    public void newGame() {
+        currentGameMatrix = new int[height][width];
+        score.reset();
+        createNewBrick();
     }
 
 
