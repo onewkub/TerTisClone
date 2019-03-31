@@ -4,7 +4,7 @@
 
 ## Member
  - **Mr. Worakun Ata** 600510528
- - **Mr. Jakkrit Boonnet 600510533**
+ - **Mr. Jakkrit Boonnet** 600510533
  - **Mr. Wachira Narasing** 600510576
  - **Mr. Bike**
  
