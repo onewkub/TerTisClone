@@ -1,6 +1,7 @@
 
 package gui;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -25,10 +26,13 @@ public class Main extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader(location, resource);
         Parent root = fxmlLoader.load();
         GuiController c = fxmlLoader.getController();
-        
-        Media media = new Media("file:///F:/TertisClone/src/resources/BanksTetrominoes/BanksTetrominoes.mp3");
+//        String path = new File("BanksTetrominoes.wav").getAbsolutePath();
+        Media media = new Media("file:///F:/TertisClone/src/resources/BanksTetrominoes.wav");
         MediaPlayer player = new MediaPlayer(media);
+//        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
         player.play();
+        
         
         
         
