@@ -1,4 +1,4 @@
-# Tertis Game
+# Tetris Game
 
 **The Group Project in Object Oriented Programming course**
 
