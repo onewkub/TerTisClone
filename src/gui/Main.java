@@ -26,22 +26,21 @@ public class Main extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader(location, resource);
         Parent root = fxmlLoader.load();
         GuiController c = fxmlLoader.getController();
-//        String path = new File("BanksTetrominoes.wav").getAbsolutePath();
-        Media media = new Media("file:///F:/TertisClone/src/resources/BanksTetrominoes.wav");
-        MediaPlayer player = new MediaPlayer(media);
-//        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
+//        Media media = new Media("file:///F:/TertisClone/src/resources/BanksTetrominoes.wav");
+//        MediaPlayer player = new MediaPlayer(media);
+        // Sound BackGround Player
+//        player.setCycleCount(MediaPlayer.INDEFINITE);
+//        player.play();
         
         
         
         
         
         primaryStage.setTitle("TirtisFX");
-        Scene scene = new Scene(root, 620, 830);
+        Scene scene = new Scene(root, 420, 540);
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
-        primaryStage.setResizable(false);
+//        primaryStage.setResizable(false);
         
         primaryStage.show();
         

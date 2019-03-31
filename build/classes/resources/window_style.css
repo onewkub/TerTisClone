@@ -9,7 +9,7 @@
 }
 
 .gameBoard {
-    -fx-border-color: white;/*linear-gradient(#2A5058, #61a2b1);*/
+    -fx-border-color: linear-gradient(#000000, #FFFFFF);
     -fx-border-width: 10px;
     -fx-border-radius: 0px;
 }
@@ -61,13 +61,13 @@
 
 .gameOverStyle {
     -fx-font-family: "Let's go Digital";
-    -fx-font-size: 48;
+    -fx-font-size: 30;
     -fx-background-color: red;
 }
 
 .scoreClass{
     -fx-font-family: "Let's go Digital";
-    -fx-font-size: 48;
+    -fx-font-size: 30;
     -fx-fill: yellow;
     -fx-text-fill: white;
     -fx-font-weight: bold;

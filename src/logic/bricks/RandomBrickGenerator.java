@@ -26,13 +26,25 @@ public class RandomBrickGenerator {
         
     }
     public Brick getBrick(){
+        brickList.clear();
+        brickList.add(new IBrick());
+        brickList.add(new JBrick());
+        brickList.add(new LBrick());
+        brickList.add(new OBrick());
+        brickList.add(new SBrick());
+        brickList.add(new TBrick());
+        brickList.add(new ZBrick());
         if(nextBricks.size() <= 1){
+
             nextBricks.add(brickList.get(ThreadLocalRandom.current().nextInt(brickList.size())));
         }
         return nextBricks.poll();
     }
 
     public Brick getNextBricks() {
+        if(nextBricks.peek() == null){
+            System.out.println("ShipHaiLewa");
+        }
         return nextBricks.peek();
     }
 

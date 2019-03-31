@@ -1,6 +1,7 @@
 package gui;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -32,7 +33,7 @@ import logic.events.MoveEvent;
 
 public class GuiController implements Initializable {
 
-    private static final int BRICK_SIZE = 40;
+    private static final int BRICK_SIZE = 25;
     private Timeline timeLine;
     private InputEventListener eventListener;
     private Rectangle[][] displayMatrix;
@@ -40,6 +41,9 @@ public class GuiController implements Initializable {
 
     private BooleanProperty paused = new SimpleBooleanProperty();
     private BooleanProperty isGameOver = new SimpleBooleanProperty();
+    private static Paint[] tableColor = new Paint[]{Color.AQUA, Color.BLUEVIOLET,
+            Color.DARKGREEN, Color.YELLOW, Color.WHITE,
+            Color.CADETBLUE, Color.BEIGE,Color.BURLYWOOD};
     
     @FXML
     private ToggleButton pauseButton;
@@ -105,12 +109,11 @@ public class GuiController implements Initializable {
                 + viewData.getyPosition() * BRICK_SIZE);
         generatePreviewPanel(viewData.getNextBrickData());
         MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.THREAD);
-        timeLine = new Timeline(new KeyFrame(Duration.millis(200),
+        timeLine = new Timeline(new KeyFrame(Duration.millis(500),
                 ae -> moveDown(event)));
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.play();
     }
-
     private void generatePreviewPanel(int[][] nextBrickData) {
         nextBrick.getChildren().clear();
         for (int i = 0; i < nextBrickData.length; i++) {
@@ -138,7 +141,7 @@ public class GuiController implements Initializable {
     private void refreshBrick(ViewData brick) {
         brickPanel.setLayoutX(gamePanel.getLayoutX() + brick.getxPosition() * brickPanel.getHgap()
                 + brick.getxPosition() * BRICK_SIZE);
-        brickPanel.setLayoutY(-BRICK_SIZE  + gamePanel.getLayoutY() + brick.getyPosition() * brickPanel.getVgap()
+        brickPanel.setLayoutY(-BRICK_SIZE + gamePanel.getLayoutY() + brick.getyPosition() * brickPanel.getVgap()
                 + brick.getyPosition() * BRICK_SIZE);
         for (int i = 0; i < brick.getBrickData().length; i++) {
             for (int j = 0; j < brick.getBrickData()[0].length; j++) {
@@ -175,6 +178,16 @@ public class GuiController implements Initializable {
 
     private Paint getFillColor(int i) {
         Paint returnPaint;
+        
+        
+//        if(i == 0){
+//            returnPaint =  Color.TRANSPARENT;
+//        }
+//        else{
+//            Random r = new Random();
+//            int num = r.nextInt(tableColor.length);
+//            returnPaint =  tableColor[num];
+//        }
         switch (i) {
             case 0:
                 returnPaint = Color.TRANSPARENT;
@@ -223,7 +236,7 @@ public class GuiController implements Initializable {
                     }
 //                    pauseButton.selectedProperty().setValue(!pauseButton.selectedProperty().getValue());
                 }
-                if (paused.getValue() == Boolean.FALSE && isGameOver.getValue() == Boolean.FALSE) {
+                else if (paused.getValue() == Boolean.FALSE && isGameOver.getValue() == Boolean.FALSE) {
                     if (event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) {
                         refreshBrick(eventListener.onRotateEvent());
                         event.consume();
@@ -272,7 +285,11 @@ public class GuiController implements Initializable {
         timeLine.stop();
         gameOverPanel.setVisible(true);
         isGameOver.setValue(Boolean.TRUE);
-        System.out.println("Game Over");
+//        System.out.println("Game Over");
 
+    }
+
+    public static int lenghtColor(){
+        return tableColor.length;
     }
 }
