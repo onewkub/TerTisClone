@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import javafx.scene.paint.Paint;
+import logic.MatrixOperations;
 
 public class IBrick implements Brick{
     private final List<int[][]> brickMatrix = new ArrayList<>();
@@ -28,7 +29,7 @@ public class IBrick implements Brick{
     }
 
     public List<int[][]> getBrickMatrix() {
-        return brickMatrix;
+        return MatrixOperations.deepCopyList(brickMatrix);
     }
     
     

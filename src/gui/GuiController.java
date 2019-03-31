@@ -1,7 +1,6 @@
 package gui;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -25,6 +24,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import logic.DownData;
+import logic.SimpleBoard;
 import logic.ViewData;
 import logic.events.EventSource;
 import logic.events.EventType;
@@ -144,7 +144,7 @@ public class GuiController implements Initializable {
         brickPanel.setLayoutY(-BRICK_SIZE + gamePanel.getLayoutY() + brick.getyPosition() * brickPanel.getVgap()
                 + brick.getyPosition() * BRICK_SIZE);
         for (int i = 0; i < brick.getBrickData().length; i++) {
-            for (int j = 0; j < brick.getBrickData()[0].length; j++) {
+            for (int j = 0; j < brick.getBrickData()[i].length; j++) {
                 setRectangleData(brick.getBrickData()[i][j], rectangles[i][j]);
             }
         }
@@ -154,7 +154,7 @@ public class GuiController implements Initializable {
     }
 
     public void refreshGameBackground(int[][] board) {
-        for (int i = 2; i < board.length; i++) {
+        for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 setRectangleData(board[i][j], displayMatrix[i][j]);
             }
@@ -219,7 +219,7 @@ public class GuiController implements Initializable {
         }
         return returnPaint;
     }
-
+//    private int numOfIndex = 0;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gamePanel.setFocusTraversable(true);
@@ -231,19 +231,20 @@ public class GuiController implements Initializable {
                 Boolean PauseStatus = pauseButton.selectedProperty().getValue();
                 Boolean OverStatus = isGameOver.getValue();
 //                System.out.printf("%", rectangles)
-                if(PauseStatus== Boolean.TRUE){
-                    System.out.println("Game is Pause");
-                }
-                else{
-                    System.out.println("Game is not Pause");
-                }
-                if(isGameOver.getValue() == Boolean.TRUE){
-                    System.out.println("Game is Over");
-                }
-                else{
-                    System.out.println("Game is not Over");
-                }
-                System.out.println("------------------------");
+//                if(PauseStatus == Boolean.TRUE){
+//                    System.out.println("Paused = TRUE " + numOfIndex);
+//                }
+//                else{
+//                    System.out.println("Paused = FALSE " + numOfIndex);
+//                }
+//                if(isGameOver.getValue() == Boolean.TRUE){
+//                    System.out.println("GameOver = TRUE " + numOfIndex);
+//                }
+//                else{
+//                    System.out.println("GameOver = FALSE " + numOfIndex);
+//                }
+//                System.out.println("------------------------");
+//                numOfIndex++;
                 if (e == KeyCode.SPACE) {
 //                    if(PauseStatus == Boolean.TRUE){
 //                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
@@ -251,28 +252,47 @@ public class GuiController implements Initializable {
 //                    else{
 //                        pauseButton.selectedProperty().setValue(Boolean.TRUE);
 //                    }
-                    pauseButton.selectedProperty().setValue(!PauseStatus);
+                    if(OverStatus == Boolean.TRUE){
+                        System.out.println("New Game");
+                        timeLine.stop();
+                        gameOverPanel.setVisible(false);
+                        eventListener.createNewGame();
+                        gamePanel.requestFocus();
+                        timeLine.play();
+                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
+                        isGameOver.setValue(Boolean.FALSE);
+                        pauseButton.setText("Pause");
+                        
+//                        SimpleBoard newBoard = new SimpleBoard(20, 10);
+                        
+//                        initGameView(newBoard.getBoardMatrix(), newBoard.getViewData());
+                        
+                    }
+                    else{
+                        pauseButton.selectedProperty().setValue(!PauseStatus);
+                    }
+//                    event.consume();
                 }
                 if (PauseStatus == Boolean.FALSE && OverStatus == Boolean.FALSE) {
                     if (e == KeyCode.UP || e == KeyCode.W) {
                         refreshBrick(eventListener.onRotateEvent());
-                        event.consume();
+//                        event.consume();
                     }
                     if (e == KeyCode.LEFT || e == KeyCode.A) {
                         refreshBrick(eventListener.onLeftEvent());
-                        event.consume();
+//                        event.consume();
                     }
                     if (e == KeyCode.RIGHT || e == KeyCode.D) {
                         refreshBrick(eventListener.onRightEvent());
-                        event.consume();
+//                        event.consume();
                     }
                     if (e == KeyCode.DOWN || e == KeyCode.S) {
 //                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
                         moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
-                        event.consume();
+//                        event.consume();
                     }
                 }
-
+                event.consume();
             }
         });
         gameOverPanel.setVisible(false);
