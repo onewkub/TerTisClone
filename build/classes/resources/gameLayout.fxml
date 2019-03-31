@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import gui.GameOverPanel?>
+
+<Pane fx:controller="gui.GuiController" xmlns:fx="http://javafx.com/fxml/1">
+    <BorderPane styleClass = "gameBoard">
+        <center>
+            <GridPane fx:id="gamePanel" hgap="1" vgap="1" />
+        </center>
+    </BorderPane>
+    <GridPane vgap="1" hgap ="1"  fx:id="brickPanel"/>
+    <VBox layoutX="440" layoutY="40"  alignment="CENTER">
+        <Label text = "NEXT BRICK"  styleClass = "nextBrickLabel"/>
+            <BorderPane styleClass = "nextBrick" prefWidth="180" prefHeight="180">
+            <center>
+                <GridPane fx:id = "nextBrick" alignment="CENTER" vgap="1" hgap ="1"/>
+            </center>
+        </BorderPane>
+    </VBox>
+    <VBox layoutX="450" layoutY="280" alignment = "CENTER">
+        <VBox alignment = "CENTER">
+            <Label text = "SCORE" styleClass = "scoreClass"/>
+            <Text text="INF" fx:id = "scoreValue" styleClass = "scoreClass"/>
+        </VBox>
+    </VBox>
+    <VBox layoutX="440" layoutY="470" alignment = "CENTER">
+        <ToggleButton text = "Pause" prefWidth="180"  styleClass = "ipad-dark-grey" fx:id = "pauseButton"/>
+    </VBox>
+    <Group fx:id ="groupNotification" layoutX="100" layoutY="200" >
+        <GameOverPanel fx:id = "gameOverPanel" />
+    </Group>      
+    <stylesheets>
+        <URL value="@window_style.css"/>
+    </stylesheets>
+</Pane>
