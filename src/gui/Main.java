@@ -26,9 +26,10 @@ public class Main extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader(location, resource);
         Parent root = fxmlLoader.load();
         GuiController c = fxmlLoader.getController();
-        Media media = new Media("file:///F:/TerTisClone/TetrisClone/src/resources/BanksTetrominoes.wav");
+        
+        String musicFile = getClass().getResource("/BanksTetrominoes.wav").toString();
+        Media media = new Media(musicFile);
         MediaPlayer player = new MediaPlayer(media);
-        // Sound BackGround Player
         player.setCycleCount(MediaPlayer.INDEFINITE);
         player.play();
         
