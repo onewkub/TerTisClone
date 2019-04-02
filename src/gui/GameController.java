@@ -19,6 +19,7 @@ public class GameController implements InputEventListener{
         viewController.setEventListener(this);
         viewController.initGameView(board.getBoardMatrix(), board.getViewData());
         viewController.bindScore(board.getScore().scoreProperty());
+        viewController.bindHighScore(board.getHighScore().highScoreProperty());
     }
     @Override
     public DownData onDownEvent(MoveEvent event) {

@@ -15,6 +15,7 @@ public class SimpleBoard {
     private int currentShape = 0;
     private Point currentOffset;
     private Score score;
+    private HighScore highScore;
     
     public SimpleBoard(int height, int width) {
         this.width = width;
@@ -22,6 +23,7 @@ public class SimpleBoard {
         currentGameMatrix = new int[height][width];
         brickGenerator = new RandomBrickGenerator();
         score = new Score();
+        highScore = new HighScore();
     }
 //    public void clearBoard(){
 //        for(int i = 0; i < height; i++){
@@ -108,7 +110,10 @@ public class SimpleBoard {
     public Score getScore() {
         return score;
     }
-
+    
+    public HighScore getHighScore(){
+        return highScore;
+    }
     public void mergeBrickToBackground() {
         currentGameMatrix = MatrixOperations.merge(currentGameMatrix, 
                 getCurrentShape(),
@@ -160,6 +165,7 @@ public class SimpleBoard {
 
     public void newGame() {
         currentGameMatrix = new int[height][width];
+        highScore.update(score.scoreProperty());
         score.reset();
         createNewBrick();
     }
