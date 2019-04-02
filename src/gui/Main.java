@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
@@ -38,7 +39,9 @@ public class Main extends Application{
         
         
         primaryStage.setTitle("T e t r i s  C M U");
-        Scene scene = new Scene(root, 420, 540);
+        Scene scene = new Scene(root, 420, 530);
+        scene.setCursor(Cursor.NONE);
+        
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.setResizable(false);

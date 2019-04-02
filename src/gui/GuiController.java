@@ -42,9 +42,9 @@ public class GuiController implements Initializable {
     private BooleanProperty paused = new SimpleBooleanProperty();
     private BooleanProperty isGameOver = new SimpleBooleanProperty();
     private static Paint[] tableColor = new Paint[]{Color.AQUA, Color.BLUEVIOLET,
-            Color.DARKGREEN, Color.YELLOW, Color.WHITE,
-            Color.CADETBLUE, Color.BEIGE,Color.BURLYWOOD};
-    
+        Color.DARKGREEN, Color.YELLOW, Color.WHITE,
+        Color.CADETBLUE, Color.BEIGE, Color.BURLYWOOD};
+
     @FXML
     private ToggleButton pauseButton;
 
@@ -58,13 +58,16 @@ public class GuiController implements Initializable {
     private Text scoreValue;
 
     @FXML
+    private Text highScoreValue;
+    
+    @FXML
     private GridPane nextBrick;
 
     @FXML
     private Group groupNotification;
-    
+
     @FXML
-    private GameOverPanel gameOverPanel;  
+    private GameOverPanel gameOverPanel;
 
     public void initGameView(int[][] boardMatrix, ViewData viewData) {
 //        gamePanel.setAlignment(Pos.CENTER);
@@ -114,6 +117,7 @@ public class GuiController implements Initializable {
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.play();
     }
+
     private void generatePreviewPanel(int[][] nextBrickData) {
         nextBrick.getChildren().clear();
         for (int i = 0; i < nextBrickData.length; i++) {
@@ -175,11 +179,13 @@ public class GuiController implements Initializable {
     public void bindScore(IntegerProperty intergerProperty) {
         scoreValue.textProperty().bind(intergerProperty.asString());
     }
+    public void bindHighScore(IntegerProperty intergerProperty){
+        highScoreValue.textProperty().bind(intergerProperty.asString());
+    }
 
     private Paint getFillColor(int i) {
         Paint returnPaint;
-        
-        
+
 //        if(i == 0){
 //            returnPaint =  Color.TRANSPARENT;
 //        }
@@ -220,6 +226,7 @@ public class GuiController implements Initializable {
         return returnPaint;
     }
 //    private int numOfIndex = 0;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gamePanel.setFocusTraversable(true);
@@ -245,6 +252,26 @@ public class GuiController implements Initializable {
 //                }
 //                System.out.println("------------------------");
 //                numOfIndex++;
+
+                if (PauseStatus == Boolean.FALSE && OverStatus == Boolean.FALSE) {
+                    if (e == KeyCode.UP) {
+                        refreshBrick(eventListener.onRotateEvent());
+//                        event.consume();
+                    }
+                    if (e == KeyCode.LEFT) {
+                        refreshBrick(eventListener.onLeftEvent());
+//                        event.consume();
+                    }
+                    if (e == KeyCode.RIGHT) {
+                        refreshBrick(eventListener.onRightEvent());
+//                        event.consume();
+                    }
+                    if (e == KeyCode.DOWN) {
+//                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
+                        moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
+//                        event.consume();
+                    }
+                }
                 if (e == KeyCode.SPACE) {
 //                    if(PauseStatus == Boolean.TRUE){
 //                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
@@ -252,59 +279,42 @@ public class GuiController implements Initializable {
 //                    else{
 //                        pauseButton.selectedProperty().setValue(Boolean.TRUE);
 //                    }
-                    if(OverStatus == Boolean.TRUE){
+                    if (OverStatus == Boolean.TRUE) {
                         System.out.println("New Game");
-                        timeLine.stop();
-                        gameOverPanel.setVisible(false);
-                        eventListener.createNewGame();
-                        gamePanel.requestFocus();
-                        timeLine.play();
-                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
-                        isGameOver.setValue(Boolean.FALSE);
-                        pauseButton.setText("Pause");
-                        
+//                        timeLine.stop();
+//                        gameOverPanel.setVisible(false);
+//                        eventListener.createNewGame();
+//                        gamePanel.requestFocus();
+//                        timeLine.play();
+//                        pauseButton.selectedProperty().setValue(Boolean.FALSE);
+//                        isGameOver.setValue(Boolean.FALSE);
+//                        pauseButton.setText("Pause");
+                        newGame();
+
 //                        SimpleBoard newBoard = new SimpleBoard(20, 10);
-                        
 //                        initGameView(newBoard.getBoardMatrix(), newBoard.getViewData());
-                        
-                    }
-                    else{
+                    } else {
+                        System.out.println("Game Pause");
                         pauseButton.selectedProperty().setValue(!PauseStatus);
                     }
 //                    event.consume();
-                }
-                if (PauseStatus == Boolean.FALSE && OverStatus == Boolean.FALSE) {
-                    if (e == KeyCode.UP || e == KeyCode.W) {
-                        refreshBrick(eventListener.onRotateEvent());
-//                        event.consume();
-                    }
-                    if (e == KeyCode.LEFT || e == KeyCode.A) {
-                        refreshBrick(eventListener.onLeftEvent());
-//                        event.consume();
-                    }
-                    if (e == KeyCode.RIGHT || e == KeyCode.D) {
-                        refreshBrick(eventListener.onRightEvent());
-//                        event.consume();
-                    }
-                    if (e == KeyCode.DOWN || e == KeyCode.S) {
-//                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
-                        moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
-//                        event.consume();
-                    }
                 }
                 event.consume();
             }
         });
         gameOverPanel.setVisible(false);
+        pauseButton.setMouseTransparent(true);
         pauseButton.selectedProperty().bindBidirectional(paused);
         pauseButton.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (newValue) {
+                    System.out.println("Game UnPause Mouse Evnet");
                     timeLine.pause();
                     pauseButton.setText("Resume");
 //                    pauseButton.selectedProperty().setValue(Boolean.TRUE);
                 } else {
+                    System.out.println("Game Pause Mouse Event");
                     timeLine.play();
                     pauseButton.setText("Pause");
 //                    pauseButton.selectedProperty().setValue(Boolean.FALSE);
@@ -318,7 +328,8 @@ public class GuiController implements Initializable {
         reflection.setTopOffset(-12);
         scoreValue.setEffect(reflection);
     }
-    public void gameOver(){
+
+    public void gameOver() {
         timeLine.stop();
         pauseButton.setText("New Game");
         gameOverPanel.setVisible(true);
@@ -327,7 +338,18 @@ public class GuiController implements Initializable {
 
     }
 
-    public static int lenghtColor(){
+    public static int lenghtColor() {
         return tableColor.length;
+    }
+
+    public void newGame() {
+        timeLine.stop();
+        gameOverPanel.setVisible(false);
+        eventListener.createNewGame();
+        gamePanel.requestFocus();
+        timeLine.play();
+        pauseButton.selectedProperty().setValue(Boolean.FALSE);
+        isGameOver.setValue(Boolean.FALSE);
+        pauseButton.setText("Pause");
     }
 }
