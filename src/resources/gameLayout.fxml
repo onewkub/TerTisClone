@@ -31,8 +31,14 @@
             <Text text="INF" fx:id = "scoreValue" styleClass = "scoreClass"/>
         </VBox>
     </VBox>
-    <VBox layoutX="303" layoutY="400" alignment = "CENTER">
-        <ToggleButton text = "Pause" prefWidth="100"  styleClass = "ipad-dark-grey" fx:id = "pauseButton"/>
+    <VBox layoutX="305" layoutY="350" alignment="CENTER" >
+        <VBox alignment = "CENTER">
+            <Label text ="HIGH SCORE" styleClass = "highScoreClass"/>
+            <Text text="INF" styleClass = "highScoreClass"/>
+        </VBox>
+    </VBox>
+    <VBox layoutX="303" layoutY="450" alignment = "CENTER">
+        <ToggleButton text = "Pause" prefWidth="100"  fx:id = "pauseButton"/>
     </VBox>
     <Group fx:id ="groupNotification" layoutX="60" layoutY="230" >
         <GameOverPanel fx:id = "gameOverPanel" />

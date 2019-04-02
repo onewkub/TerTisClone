@@ -72,3 +72,10 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+.highScoreClass{
+    -fx-font-family: "";
+    -fx-font-size: 15;
+    -fx-fill: yellow;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
