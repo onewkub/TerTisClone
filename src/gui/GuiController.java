@@ -280,7 +280,7 @@ public class GuiController implements Initializable {
 //                        pauseButton.selectedProperty().setValue(Boolean.TRUE);
 //                    }
                     if (OverStatus == Boolean.TRUE) {
-                        System.out.println("New Game");
+//                        System.out.println("New Game");
 //                        timeLine.stop();
 //                        gameOverPanel.setVisible(false);
 //                        eventListener.createNewGame();
@@ -294,7 +294,7 @@ public class GuiController implements Initializable {
 //                        SimpleBoard newBoard = new SimpleBoard(20, 10);
 //                        initGameView(newBoard.getBoardMatrix(), newBoard.getViewData());
                     } else {
-                        System.out.println("Game Pause");
+//                        System.out.println("Game Pause");
                         pauseButton.selectedProperty().setValue(!PauseStatus);
                     }
 //                    event.consume();
@@ -309,12 +309,12 @@ public class GuiController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (newValue) {
-                    System.out.println("Game UnPause Mouse Evnet");
+//                    System.out.println("Game UnPause Mouse Evnet");
                     timeLine.pause();
                     pauseButton.setText("Resume");
 //                    pauseButton.selectedProperty().setValue(Boolean.TRUE);
                 } else {
-                    System.out.println("Game Pause Mouse Event");
+//                    System.out.println("Game Pause Mouse Event");
                     timeLine.play();
                     pauseButton.setText("Pause");
 //                    pauseButton.selectedProperty().setValue(Boolean.FALSE);
