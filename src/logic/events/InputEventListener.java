@@ -1,6 +1,7 @@
 
 package logic.events;
 
+import gui.SoundController;
 import logic.DownData;
 import logic.ViewData;
 
@@ -16,4 +17,6 @@ public interface InputEventListener {
     ViewData onRotateEvent();
     
     void createNewGame();
+    
+    SoundController getBgMusic();
 }
