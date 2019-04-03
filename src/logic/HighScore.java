@@ -11,12 +11,15 @@ public class HighScore {
 
     public HighScore() {
         prefs = Preferences.userNodeForPackage(this.getClass());
-        if (prefs.get("HIGH_SCORE", "") != null)  {
-//            prefs.get("HIGH_SCORE", "");
-            highScore.setValue(Integer.parseInt(prefs.get("HIGH_SCORE", "")));
-        } else {
-            highScore.setValue(0);
-        }
+        int temp = prefs.getInt("HIGH_SCORE", 0);
+        System.out.println(temp);
+        highScore.setValue(temp);
+//        if (prefs.get("HIGH_SCORE", "") != null)  {
+////            prefs.get("HIGH_SCORE", "");
+//            highScore.setValue(Integer.parseInt(prefs.get("HIGH_SCORE", "")));
+//        } else {
+//            highScore.setValue(0);
+//        }
 
     }
 
@@ -29,7 +32,7 @@ public class HighScore {
         int currentHighScore = highScore.getValue().intValue();
         if (currentHighScore < currentScore) {
             highScore.setValue(currentScore);
-            prefs.put("HIGH_SCORE", Integer.toString(currentScore));
+            prefs.putInt("HIGH_SCORE", currentScore);
         }
 
     }

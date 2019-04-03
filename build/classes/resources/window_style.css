@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "Bloomer DEMO";
+    src: url("BloomerDEMO.otf");
+}
+.root {
+    -fx-background-image: url("GalaxyDust.jpg");
+}
+
+.nextBrick {
+    -fx-border-width: 2px;
+    -fx-border-color: whitesmoke;
+    -fx-border-radius: 8px;
+}
+
+.gameBoard {
+    -fx-border-color: linear-gradient(#000000, #FFFFFF);
+    -fx-border-width: 10px;
+    -fx-border-radius: 0px;
+}
+
+.nextBrickLabel {
+    -fx-font-family: "Bloomer DEMO";
+    -fx-padding: 20px 0 0 0;
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.rectangleStyle {
+    -fx-fill: linear-gradient(from 41px 34px to 50px 50px, reflect, #ff7f50 30%, #faebd7 47%);
+}
+
+.vbox {
+    -fx-spacing: 12;
+}
+
+.helpInfo {
+    -fx-fill: white;
+    -fx-alignment: center-left;
+    -fx-text-alignment: left;
+    -fx-font-size: 10px;
+}
+
+.bonusStyle {
+    -fx-font-size: 40px;
+    -fx-font-family: "Bloomer DEMO";
+    -fx-font-weight: bold;
+}
+
+.gameOverStyle {
+    -fx-font-family: "Bloomer DEMO";
+    -fx-font-size: 30;
+    -fx-background-color: red;
+}
+
+.scoreClass{
+    -fx-font-family: "Bloomer DEMO";
+    -fx-font-size: 30;
+    -fx-fill: yellow;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.highScoreClass{
+    -fx-font-family: "Bloomer DEMO";
+    -fx-font-size: 25;
+    -fx-fill: yellow;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.dark-blue {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Bloomer DEMO";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+.dark-blue Text{
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+
+}
