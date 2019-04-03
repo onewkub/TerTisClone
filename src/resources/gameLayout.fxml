@@ -17,7 +17,7 @@
         </center>
     </BorderPane>
     
-    <VBox layoutX="293" layoutY="40"  alignment="CENTER">
+    <VBox layoutX="300" layoutY="40"  alignment="CENTER">
         <Label text = "NEXT BRICK"  styleClass = "nextBrickLabel"/>
             <BorderPane styleClass = "nextBrick" prefWidth="100" prefHeight="100">
             <center>
@@ -25,20 +25,20 @@
             </center>
         </BorderPane>
     </VBox>
-    <VBox layoutX="303" layoutY="220" alignment = "CENTER">
+    <VBox layoutX="320" layoutY="220" alignment = "CENTER">
         <VBox alignment = "CENTER">
             <Label text = "SCORE" styleClass = "scoreClass"/>
             <Text text="INF" fx:id = "scoreValue" styleClass = "scoreClass"/>
         </VBox>
     </VBox>
-    <VBox layoutX="305" layoutY="350" alignment="CENTER" >
+    <VBox layoutX="300" layoutY="350" alignment="CENTER" >
         <VBox alignment = "CENTER">
             <Label text ="HIGH SCORE" styleClass = "highScoreClass"/>
             <Text text="INF" fx:id = "highScoreValue" styleClass = "highScoreClass"/>
         </VBox>
     </VBox>
-    <VBox layoutX="303" layoutY="450" alignment = "CENTER">
-        <ToggleButton text = "Pause" prefWidth="100"  fx:id = "pauseButton"/>
+    <VBox layoutX="300" layoutY="450" alignment = "CENTER">
+        <ToggleButton text = "Pause" prefWidth="100"  fx:id = "pauseButton"  styleClass = "dark-blue"/>
     </VBox>
     <Group fx:id ="groupNotification" layoutX="60" layoutY="230" >
         <GameOverPanel fx:id = "gameOverPanel" />

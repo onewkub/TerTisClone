@@ -41,7 +41,7 @@ public class GuiController implements Initializable {
 
     private BooleanProperty paused = new SimpleBooleanProperty();
     private BooleanProperty isGameOver = new SimpleBooleanProperty();
-    private static Paint[] tableColor = new Paint[]{Color.AQUA, Color.BLUEVIOLET,
+    private static Paint[] tableColor = new Paint[]{Color.AQUA, Color.LIGHTCYAN,
         Color.DARKGREEN, Color.YELLOW, Color.WHITE,
         Color.CADETBLUE, Color.BEIGE, Color.BURLYWOOD};
 
