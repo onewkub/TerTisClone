@@ -40,7 +40,7 @@
     <VBox layoutX="300" layoutY="450" alignment = "CENTER">
         <ToggleButton text = "Pause" prefWidth="100"  fx:id = "pauseButton"  styleClass = "dark-blue"/>
     </VBox>
-    <Group fx:id ="groupNotification" layoutX="60" layoutY="230" >
+    <Group fx:id ="groupNotification" layoutX="90" layoutY="230" >
         <GameOverPanel fx:id = "gameOverPanel" />
     </Group>      
     <stylesheets>

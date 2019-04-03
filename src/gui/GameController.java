@@ -12,6 +12,7 @@ import logic.events.MoveEvent;
 public class GameController implements InputEventListener{
     private SimpleBoard board = new SimpleBoard(20, 10);
     private final GuiController viewController;
+    private final SoundController bgMusic = new SoundController(getClass().getResource("/BanksTetrominoes.wav").toString(), true);
 
     public GameController(GuiController c) {
         this.viewController = c;
@@ -20,6 +21,7 @@ public class GameController implements InputEventListener{
         viewController.initGameView(board.getBoardMatrix(), board.getViewData());
         viewController.bindScore(board.getScore().scoreProperty());
         viewController.bindHighScore(board.getHighScore().highScoreProperty());
+        bgMusic.playMedia();
     }
     @Override
     public DownData onDownEvent(MoveEvent event) {
@@ -69,6 +71,10 @@ public class GameController implements InputEventListener{
     public void createNewGame() {
         board.newGame();
         viewController.refreshGameBackground(board.getBoardMatrix());
+    }
+    
+    public SoundController getBgMusic(){
+        return bgMusic;
     }
     
 

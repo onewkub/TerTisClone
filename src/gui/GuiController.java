@@ -311,10 +311,12 @@ public class GuiController implements Initializable {
                 if (newValue) {
 //                    System.out.println("Game UnPause Mouse Evnet");
                     timeLine.pause();
+                    eventListener.getBgMusic().pauseMedia();
                     pauseButton.setText("Resume");
 //                    pauseButton.selectedProperty().setValue(Boolean.TRUE);
                 } else {
 //                    System.out.println("Game Pause Mouse Event");
+                    eventListener.getBgMusic().playMedia();
                     timeLine.play();
                     pauseButton.setText("Pause");
 //                    pauseButton.selectedProperty().setValue(Boolean.FALSE);
@@ -346,7 +348,9 @@ public class GuiController implements Initializable {
         timeLine.stop();
         gameOverPanel.setVisible(false);
         eventListener.createNewGame();
+        eventListener.getBgMusic().stopMedia();
         gamePanel.requestFocus();
+        eventListener.getBgMusic().playMedia();
         timeLine.play();
         pauseButton.selectedProperty().setValue(Boolean.FALSE);
         isGameOver.setValue(Boolean.FALSE);
