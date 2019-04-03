@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Bloomer DEMO";
+    src: url("BloomerDEMO.otf");
+}
 .root {
     -fx-background-image: url("GalaxyDust.jpg");
 }
@@ -15,28 +19,11 @@
 }
 
 .nextBrickLabel {
-    -fx-font-family: "";
+    -fx-font-family: "Bloomer DEMO";
     -fx-padding: 20px 0 0 0;
     -fx-font-size: 20px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-}
-
-.ipad-dark-grey {
-    -fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-    linear-gradient(#020b02, #3a3a3a),
-    linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
-    linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
-    linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);
-    -fx-background-insets: 0, 1, 4, 5, 6;
-    -fx-background-radius: 9, 8, 5, 4, 3;
-    -fx-padding: 8;
-    /*-fx-font-family: "Helvetica";*/
-    -fx-font-family: "";
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.2), 1, 0.0, 0, 1);
 }
 
 .rectangleStyle {
@@ -56,26 +43,46 @@
 
 .bonusStyle {
     -fx-font-size: 40px;
+    -fx-font-family: "Bloomer DEMO";
     -fx-font-weight: bold;
 }
 
 .gameOverStyle {
-    -fx-font-family: "";
+    -fx-font-family: "Bloomer DEMO";
     -fx-font-size: 30;
     -fx-background-color: red;
 }
 
 .scoreClass{
-    -fx-font-family: "";
+    -fx-font-family: "Bloomer DEMO";
     -fx-font-size: 30;
     -fx-fill: yellow;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 .highScoreClass{
-    -fx-font-family: "";
-    -fx-font-size: 15;
+    -fx-font-family: "Bloomer DEMO";
+    -fx-font-size: 25;
     -fx-fill: yellow;
     -fx-text-fill: white;
     -fx-font-weight: bold;
+}
+.dark-blue {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Bloomer DEMO";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+.dark-blue Text{
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+
 }
