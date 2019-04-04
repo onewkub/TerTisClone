@@ -12,7 +12,7 @@ public class HighScore {
     public HighScore() {
         prefs = Preferences.userNodeForPackage(this.getClass());
         int temp = prefs.getInt("HIGH_SCORE", 0);
-        System.out.println(temp);
+//        System.out.println(temp);
         highScore.setValue(temp);
 //        if (prefs.get("HIGH_SCORE", "") != null)  {
 ////            prefs.get("HIGH_SCORE", "");
