@@ -28,13 +28,6 @@ public class Main extends Application{
         Parent root = fxmlLoader.load();
         GuiController c = fxmlLoader.getController();
         
-//        String musicFile = getClass().getResource("/BanksTetrominoes.wav").toString();
-//        Media media = new Media(musicFile);
-//        MediaPlayer player = new MediaPlayer(media);
-//        player.setCycleCount(MediaPlayer.INDEFINITE);
-//        player.play();
-        
-        
         
         
         
