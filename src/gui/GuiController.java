@@ -199,19 +199,19 @@ public class GuiController implements Initializable {
                 returnPaint = Color.TRANSPARENT;
                 break;
             case 1:
-                returnPaint = Color.AQUA;
+                returnPaint = Color.web("0x5DADE2", 1);
                 break;
             case 2:
                 returnPaint = Color.LIGHTCYAN;
                 break;
             case 3:
-                returnPaint = Color.DARKGREEN;
+                returnPaint = Color.web("0x229954", 1);
                 break;
             case 4:
-                returnPaint = Color.YELLOW;
+                returnPaint = Color.web("0xF4D03F", 1);
                 break;
             case 5:
-                returnPaint = Color.CADETBLUE;
+                returnPaint = Color.web("0xA569BD", 1);
                 break;
             case 6:
                 returnPaint = Color.BEIGE;
@@ -269,7 +269,7 @@ public class GuiController implements Initializable {
                     if (e == KeyCode.DOWN) {
 //                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
                         moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
-                        eventListener.playMoveSound();
+//                        eventListener.playMoveSound();
 //                        event.consume();
                     }
                 }
@@ -343,7 +343,8 @@ public class GuiController implements Initializable {
     }
 
     public static int lenghtColor() {
-        return tableColor.length;
+//        return tableColor.length;
+        return 8;
     }
 
     public void newGame() {

@@ -17,6 +17,7 @@ public class GameController implements InputEventListener{
     private final String brickPlaceSound = getClass().getResource("/brickPlace.wav").toString();
     private final String moveBrickSound = getClass().getResource("/moveBrick.wav").toString();
     private final String bonusScoreSound = getClass().getResource("/bonusScore.wav").toString();
+    private final String overSound = getClass().getResource("/overSound.wav").toString();
             
     public GameController(GuiController c) {
         this.viewController = c;
@@ -42,12 +43,15 @@ public class GameController implements InputEventListener{
             }
 //            System.out.println(clearRow.getLinesRemoved());
             if(board.createNewBrick()){
+                playOverSound();
                 viewController.gameOver();
+                
             }
 //            board.createNewBrick();
         }
         else{
             if(event.getEventSource() == EventSource.USER){
+                playMoveSound();
                 board.getScore().add(1);
             }
         }
@@ -100,6 +104,11 @@ public class GameController implements InputEventListener{
     public void playBonusScoreSound(){
         sfxSound.setSource(bonusScoreSound);
         sfxSound.setVol(0.8);
+        sfxSound.playMedia();
+    }
+    public void playOverSound(){
+        sfxSound.setSource(overSound);
+        sfxSound.setVol(1);
         sfxSound.playMedia();
     }
 }

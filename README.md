@@ -6,7 +6,7 @@
  - **Mr. Worakun Ata** 600510528
  - **Mr. Jakkrit Boonnet** 600510533
  - **Mr. Wachira Narasing** 600510576
- - **Mr. Bike**
+ - **Mr. Jirajate Jantarawong** 600510534
  
 ## Languages in Development
  - **Only Java Language**
