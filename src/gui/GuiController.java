@@ -269,7 +269,7 @@ public class GuiController implements Initializable {
                     if (e == KeyCode.DOWN) {
 //                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
                         moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
-                        eventListener.playMoveSound();
+//                        eventListener.playMoveSound();
 //                        event.consume();
                     }
                 }
@@ -343,7 +343,8 @@ public class GuiController implements Initializable {
     }
 
     public static int lenghtColor() {
-        return tableColor.length;
+//        return tableColor.length;
+        return 8;
     }
 
     public void newGame() {
