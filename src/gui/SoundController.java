@@ -13,6 +13,12 @@ public class SoundController {
         if(loop)
             player.setCycleCount(MediaPlayer.INDEFINITE);
     }
+    public SoundController(){    
+    }
+    public void setSource(String source){
+        file = new Media(source);
+        player = new MediaPlayer(file);
+    }
     public void playMedia(){
         player.play();
     }
@@ -21,6 +27,9 @@ public class SoundController {
     }
     public void stopMedia(){
         player.stop();
+    }
+    public void setVol(double value){
+        player.setVolume(value);
     }
     
 }
