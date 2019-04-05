@@ -199,19 +199,19 @@ public class GuiController implements Initializable {
                 returnPaint = Color.TRANSPARENT;
                 break;
             case 1:
-                returnPaint = Color.AQUA;
+                returnPaint = Color.web("0x5DADE2", 1);
                 break;
             case 2:
                 returnPaint = Color.LIGHTCYAN;
                 break;
             case 3:
-                returnPaint = Color.DARKGREEN;
+                returnPaint = Color.web("0x229954", 1);
                 break;
             case 4:
-                returnPaint = Color.YELLOW;
+                returnPaint = Color.web("0xF4D03F", 1);
                 break;
             case 5:
-                returnPaint = Color.CADETBLUE;
+                returnPaint = Color.web("0xA569BD", 1);
                 break;
             case 6:
                 returnPaint = Color.BEIGE;
