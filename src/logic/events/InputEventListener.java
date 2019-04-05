@@ -19,4 +19,7 @@ public interface InputEventListener {
     void createNewGame();
     
     SoundController getBgMusic();
+    
+    void playMoveSound();
+    void playBonusScoreSound();
 }

@@ -1,7 +1,6 @@
 
 package gui;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -9,8 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class Main extends Application{

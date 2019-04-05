@@ -269,6 +269,7 @@ public class GuiController implements Initializable {
                     if (e == KeyCode.DOWN) {
 //                   MoveEvent event = new MoveEvent(EventType.DOWN, EventSource.USER);
                         moveDown(new MoveEvent(EventType.DOWN, EventSource.USER));
+                        eventListener.playMoveSound();
 //                        event.consume();
                     }
                 }
@@ -279,6 +280,7 @@ public class GuiController implements Initializable {
 //                    else{
 //                        pauseButton.selectedProperty().setValue(Boolean.TRUE);
 //                    }
+                    eventListener.playBonusScoreSound();
                     if (OverStatus == Boolean.TRUE) {
 //                        System.out.println("New Game");
 //                        timeLine.stop();
