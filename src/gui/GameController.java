@@ -90,7 +90,6 @@ public class GameController implements InputEventListener{
     public SoundController getBgMusic(){
         return bgMusic;
     }
-    
     public void playMoveSound(){
         sfxSound.setSource(moveBrickSound);
         sfxSound.setVol(0.1);
@@ -110,5 +109,19 @@ public class GameController implements InputEventListener{
         sfxSound.setSource(overSound);
         sfxSound.setVol(1);
         sfxSound.playMedia();
+    }
+
+    @Override
+    public void muteSound() {
+        sfxSound.mute();
+        bgMusic.mute();
+        bgMusic.setVol(0);
+    }
+
+    @Override
+    public void unMuteSound() {
+        sfxSound.unMute();
+        bgMusic.unMute();
+        bgMusic.setVol(1);
     }
 }
