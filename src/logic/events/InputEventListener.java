@@ -22,4 +22,6 @@ public interface InputEventListener {
     
     void playMoveSound();
     void playBonusScoreSound();
+    void muteSound();
+    void unMuteSound();
 }

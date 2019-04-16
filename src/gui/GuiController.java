@@ -301,6 +301,13 @@ public class GuiController implements Initializable {
                     }
 //                    event.consume();
                 }
+                if(e == KeyCode.M){
+//                    System.out.println("IsMute");
+                    if(!eventListener.getBgMusic().getIsmute())
+                        eventListener.muteSound();
+                    else
+                        eventListener.unMuteSound();
+                }
                 event.consume();
             }
         });
