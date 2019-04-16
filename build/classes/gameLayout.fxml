@@ -37,8 +37,8 @@
             <Text text="INF" fx:id = "highScoreValue" styleClass = "highScoreClass"/>
         </VBox>
     </VBox>
-    <VBox layoutX="310" layoutY="450" alignment = "CENTER">
-        <ToggleButton text = "Pause" prefWidth="100"  fx:id = "pauseButton"  styleClass = "dark-blue"/>
+    <VBox layoutX="295" layoutY="450" alignment = "CENTER">
+        <ToggleButton text = "Pause" prefWidth="120"  fx:id = "pauseButton"  styleClass = "dark-blue"/>
     </VBox>
     <Group fx:id ="groupNotification" layoutX="40" layoutY="230" >
         <GameOverPanel fx:id = "gameOverPanel" />
