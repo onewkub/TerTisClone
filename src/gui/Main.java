@@ -28,7 +28,7 @@ public class Main extends Application{
         
         
         
-        primaryStage.setTitle("T e t r i s  C M U");
+        primaryStage.setTitle("Adventure Tetris");
         Scene scene = new Scene(root, 420, 530);
         scene.setCursor(Cursor.NONE);
         
